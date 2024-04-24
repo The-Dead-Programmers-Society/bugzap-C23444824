@@ -1,5 +1,5 @@
 extends Node2D
 
 
-func _on_play_sfx_pressed():
+func _on_button_pressed():
 	$Beat.play()
