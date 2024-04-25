@@ -1,19 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7560q77fuira"]
+[gd_scene load_steps=16 format=3 uid="uid://b7560q77fuira"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kxdkq"]
 [ext_resource type="AudioStream" uid="uid://bril6hkvstpue" path="res://Car Horn (Beeping Sound) - Sound Effect for Editing.wav" id="2_edmr8"]
 [ext_resource type="Texture2D" uid="uid://0353rpue4k41" path="res://RedCar.png" id="2_iiic2"]
+[ext_resource type="Texture2D" uid="uid://rgsyv4wsiiby" path="res://StageCar.png" id="2_pkbwj"]
 [ext_resource type="Script" path="res://Audio_Slider.gd" id="3_3gymj"]
 [ext_resource type="AudioStream" uid="uid://kp1rwgeu1f8t" path="res://Car Start up(Edited).wav" id="4_3x0uj"]
 [ext_resource type="AudioStream" uid="uid://b0qhwsb2467m6" path="res://CarRev(Edited).wav" id="5_jic2x"]
 [ext_resource type="AudioStream" uid="uid://bboedwhwwsc6o" path="res://StreetCrossing.wav" id="7_e6s8j"]
 [ext_resource type="FontFile" uid="uid://chdsw8jumcacw" path="res://nasalization-rg.otf" id="8_plgmf"]
+[ext_resource type="AudioStream" uid="uid://bhcwdxhl8h3kv" path="res://TruckHorn.wav" id="10_mubpg"]
+[ext_resource type="AudioStream" uid="uid://dxktgtrbm3krk" path="res://Car Engine Noises.wav" id="11_8jdn3"]
+[ext_resource type="AudioStream" uid="uid://bs4apjoq7kgst" path="res://Car Key.wav" id="12_0gd2v"]
+[ext_resource type="AudioStream" uid="uid://knofete2bpya" path="res://CarDrift.wav" id="12_5grw5"]
+[ext_resource type="AudioStream" uid="uid://c3xmwgougyedf" path="res://CarDoorOpen.wav" id="14_s2fp1"]
+[ext_resource type="Texture2D" uid="uid://pwounb5vdwp4" path="res://Microphone.png" id="15_u7p7t"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kxdkq")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(592, 168)
+texture = ExtResource("2_pkbwj")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(568, 272)
+position = Vector2(568, 240)
 texture = ExtResource("2_iiic2")
 
 [node name="CarHorn" type="AudioStreamPlayer2D" parent="."]
@@ -21,10 +32,10 @@ position = Vector2(250, 53)
 stream = ExtResource("2_edmr8")
 
 [node name="PlayBeat" type="Button" parent="."]
-offset_left = 56.0
-offset_top = 296.0
-offset_right = 191.0
-offset_bottom = 360.0
+offset_left = 64.0
+offset_top = 360.0
+offset_right = 199.0
+offset_bottom = 424.0
 scale = Vector2(1.19575, 1.11716)
 text = "Car Horn"
 
@@ -39,10 +50,10 @@ script = ExtResource("3_3gymj")
 bus_name = "Master"
 
 [node name="CarStartUp" type="Button" parent="."]
-offset_left = 944.0
-offset_top = 120.0
-offset_right = 1064.0
-offset_bottom = 189.0
+offset_left = 920.0
+offset_top = 176.0
+offset_right = 1040.0
+offset_bottom = 245.0
 scale = Vector2(1.19575, 1.11716)
 text = "Car Start Up"
 
@@ -55,25 +66,65 @@ stream = ExtResource("4_3x0uj")
 stream = ExtResource("5_jic2x")
 
 [node name="CarRev2" type="Button" parent="."]
-offset_left = 56.0
-offset_top = 120.0
-offset_right = 186.0
-offset_bottom = 184.0
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 194.0
+offset_bottom = 240.0
 scale = Vector2(1.19575, 1.11716)
 text = "Car Rev"
 
+[node name="THorn" type="Button" parent="."]
+offset_left = 912.0
+offset_top = 360.0
+offset_right = 1042.0
+offset_bottom = 424.0
+scale = Vector2(1.19575, 1.11716)
+text = "Truck Horn"
+
+[node name="CarDrift" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 496.0
+offset_right = 202.0
+offset_bottom = 560.0
+scale = Vector2(1.19575, 1.11716)
+text = "Drift"
+
+[node name="CarKey2" type="Button" parent="."]
+offset_left = 360.0
+offset_top = 488.0
+offset_right = 490.0
+offset_bottom = 552.0
+scale = Vector2(1.19575, 1.11716)
+text = "Car Key"
+
+[node name="Car Door" type="Button" parent="."]
+offset_left = 632.0
+offset_top = 488.0
+offset_right = 762.0
+offset_bottom = 552.0
+scale = Vector2(1.19575, 1.11716)
+text = "Car Door"
+
+[node name="CarEngine" type="Button" parent="."]
+offset_left = 912.0
+offset_top = 504.0
+offset_right = 1042.0
+offset_bottom = 568.0
+scale = Vector2(1.19575, 1.11716)
+text = "Car Engine"
+
 [node name="Crossing" type="Button" parent="."]
 offset_left = 480.0
-offset_top = 432.0
+offset_top = 392.0
 offset_right = 642.0
-offset_bottom = 496.0
+offset_bottom = 456.0
 scale = Vector2(1.19575, 1.11716)
 text = "Pedestrian Crossing"
 
 [node name="StreetCrossing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_e6s8j")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 offset_left = 392.0
 offset_top = 8.0
 offset_right = 767.0
@@ -82,7 +133,33 @@ theme_type_variation = &"HeaderLarge"
 theme_override_fonts/font = ExtResource("8_plgmf")
 text = "The Vehicular Auditorium"
 
+[node name="TruckHorn" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(592, 168)
+stream = ExtResource("10_mubpg")
+
+[node name="Engine" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(592, 168)
+stream = ExtResource("11_8jdn3")
+
+[node name="CarKey" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_0gd2v")
+
+[node name="Drift" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_5grw5")
+
+[node name="CarDoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_s2fp1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(648, 264)
+texture = ExtResource("15_u7p7t")
+
 [connection signal="pressed" from="PlayBeat" to="." method="_on_play_beat_pressed"]
 [connection signal="pressed" from="CarStartUp" to="." method="_on_car_start_up_pressed"]
 [connection signal="pressed" from="CarRev2" to="." method="_on_car_rev_2_pressed"]
+[connection signal="pressed" from="THorn" to="." method="_on_t_horn_pressed"]
+[connection signal="pressed" from="CarDrift" to="." method="_on_car_drift_pressed"]
+[connection signal="pressed" from="CarKey2" to="." method="_on_car_key_2_pressed"]
+[connection signal="pressed" from="Car Door" to="." method="_on_car_door_pressed"]
+[connection signal="pressed" from="CarEngine" to="." method="_on_car_engine_pressed"]
 [connection signal="pressed" from="Crossing" to="." method="_on_crossing_pressed"]
