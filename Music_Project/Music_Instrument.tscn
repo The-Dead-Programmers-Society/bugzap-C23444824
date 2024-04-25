@@ -1,32 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7560q77fuira"]
+[gd_scene load_steps=9 format=3 uid="uid://b7560q77fuira"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kxdkq"]
-[ext_resource type="AudioStream" uid="uid://c2ngijxclq8m4" path="res://Beat.wav" id="2_1vi8d"]
+[ext_resource type="AudioStream" uid="uid://bril6hkvstpue" path="res://Car Horn (Beeping Sound) - Sound Effect for Editing.wav" id="2_edmr8"]
+[ext_resource type="Texture2D" uid="uid://0353rpue4k41" path="res://RedCar.png" id="2_iiic2"]
 [ext_resource type="Script" path="res://Audio_Slider.gd" id="3_3gymj"]
+[ext_resource type="AudioStream" uid="uid://kp1rwgeu1f8t" path="res://Car Start up(Edited).wav" id="4_3x0uj"]
+[ext_resource type="AudioStream" uid="uid://b0qhwsb2467m6" path="res://CarRev(Edited).wav" id="5_jic2x"]
+[ext_resource type="AudioStream" uid="uid://bboedwhwwsc6o" path="res://StreetCrossing.wav" id="7_e6s8j"]
+[ext_resource type="FontFile" uid="uid://chdsw8jumcacw" path="res://nasalization-rg.otf" id="8_plgmf"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kxdkq")
 
-[node name="Beat" type="AudioStreamPlayer2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 272)
+texture = ExtResource("2_iiic2")
+
+[node name="CarHorn" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(250, 53)
-stream = ExtResource("2_1vi8d")
-bus = &"Beat"
+stream = ExtResource("2_edmr8")
 
 [node name="PlayBeat" type="Button" parent="."]
-offset_left = 44.0
-offset_top = 156.0
-offset_right = 350.0
-offset_bottom = 328.0
+offset_left = 56.0
+offset_top = 296.0
+offset_right = 191.0
+offset_bottom = 360.0
 scale = Vector2(1.19575, 1.11716)
-text = "Play Beat"
-
-[node name="Button" type="Button" parent="."]
-offset_left = 752.0
-offset_top = 245.0
-offset_right = 850.0
-offset_bottom = 276.0
-scale = Vector2(1.98991, 2.6559)
-text = "Clear Audio"
+text = "Car Horn"
 
 [node name="AudioSlider" type="HSlider" parent="."]
 offset_left = 484.0
@@ -36,7 +36,53 @@ offset_bottom = 610.0
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_3gymj")
-bus_name = "Beat"
+bus_name = "Master"
+
+[node name="CarStartUp" type="Button" parent="."]
+offset_left = 944.0
+offset_top = 120.0
+offset_right = 1064.0
+offset_bottom = 189.0
+scale = Vector2(1.19575, 1.11716)
+text = "Car Start Up"
+
+[node name="CarStartUp2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(147.115, 404.378)
+scale = Vector2(1.19575, 1.11716)
+stream = ExtResource("4_3x0uj")
+
+[node name="CarRev" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jic2x")
+
+[node name="CarRev2" type="Button" parent="."]
+offset_left = 56.0
+offset_top = 120.0
+offset_right = 186.0
+offset_bottom = 184.0
+scale = Vector2(1.19575, 1.11716)
+text = "Car Rev"
+
+[node name="Crossing" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 432.0
+offset_right = 642.0
+offset_bottom = 496.0
+scale = Vector2(1.19575, 1.11716)
+text = "Pedestrian Crossing"
+
+[node name="StreetCrossing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_e6s8j")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 392.0
+offset_top = 8.0
+offset_right = 767.0
+offset_bottom = 53.0
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("8_plgmf")
+text = "The Vehicular Auditorium"
 
 [connection signal="pressed" from="PlayBeat" to="." method="_on_play_beat_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CarStartUp" to="." method="_on_car_start_up_pressed"]
+[connection signal="pressed" from="CarRev2" to="." method="_on_car_rev_2_pressed"]
+[connection signal="pressed" from="Crossing" to="." method="_on_crossing_pressed"]
